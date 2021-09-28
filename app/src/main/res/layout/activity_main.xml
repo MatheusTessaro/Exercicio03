@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vermelho"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/skbVermelho"
+        android:max="255"
+        android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verde"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/skbVerde"
+        android:max="255"
+        android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/azul"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/skbAzul"
+        android:max="255"
+        android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCor"
+        android:gravity="center"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/barraCor"
+        android:layout_margin="@dimen/activity_horizontal_margin"/>
+
+</LinearLayout>
