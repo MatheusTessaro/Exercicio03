@@ -1,19 +1,29 @@
 package com.example.exercicio03;
 
-import android.graphics.Color;
+
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
-    private SeekBar skbVermelho;
-    private SeekBar skbVerde;
-    private SeekBar skbAzul;
-    private TextView txtCor;
-    private TextView cor;
+    private TextView textField;
+    private EditText edtText;
+    private SeekBar skbTamanhoLetra;
+    private ImageButton btnEnviar;
+    private CheckBox ckbNegrito;
+    private CheckBox ckbItalico;
+    private CheckBox ckbMaiusculo;
 
     private String[] corHex={"00","00","00"};
 
@@ -22,29 +32,53 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        skbVermelho = findViewById(R.id.skbVermelho);
-        skbVerde = findViewById(R.id.skbVerde);
-        skbAzul = findViewById(R.id.skbAzul);
-        txtCor = findViewById(R.id.txtCor);
-        cor = findViewById(R.id.barraCor);
+        textField = findViewById(R.id.textfield);
+        edtText = findViewById(R.id.edtText);
+        skbTamanhoLetra = findViewById(R.id.skbTamanhoLetra);
+        btnEnviar = findViewById(R.id.btnEnviar);
+        ckbNegrito = findViewById(R.id.ckbNegrito);
+        ckbItalico = findViewById(R.id.ckbItalico);
+        ckbMaiusculo = findViewById(R.id.ckbMaiusculo);
 
-        skbVermelho.setOnSeekBarChangeListener(this);
-        skbVerde.setOnSeekBarChangeListener(this);
-        skbAzul.setOnSeekBarChangeListener(this);
+        btnEnviar.setOnClickListener(this);
+        skbTamanhoLetra.setOnSeekBarChangeListener(this);
+        ckbNegrito.setOnCheckedChangeListener(this);
+        ckbItalico.setOnCheckedChangeListener(this);
+        ckbMaiusculo.setOnCheckedChangeListener(this);
+
+
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        String c = Integer.toHexString(progress);
-        if (seekBar.getId() == R.id.skbVermelho)
-            corHex[0] = (c.length() == 2? "":"0") + c;
-        if (seekBar.getId() == R.id.skbVerde)
-            corHex[1] = (c.length() == 2? "":"0") + c;
-        if (seekBar.getId() == R.id.skbAzul)
-            corHex[2] = (c.length() == 2? "":"0") + c;
+        textField.setTextSize(progress+12);
+    }
 
-        txtCor.setText("#" + corHex[0] + corHex[1] + corHex[2]);
-        cor.setBackgroundColor(Color.parseColor("#"+ corHex[0] + corHex[1] + corHex[2]));
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.btnEnviar) {
+            textField.setText(edtText.getText());
+            edtText.getText().clear();
+        }
+
+
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        if(ckbNegrito.isChecked()){
+            textField.setTypeface(null, Typeface.BOLD);
+        }
+        if (ckbItalico.isChecked()){
+            textField.setTypeface(null, Typeface.ITALIC);
+        }
+        if (ckbMaiusculo.isChecked()){
+            textField.setText(textField.getText().toString().toUpperCase());
+
+        }
+
+
     }
 
     @Override
@@ -56,4 +90,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     public void onStopTrackingTouch(SeekBar seekBar) {
 
     }
+
+
 }

@@ -1,66 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/vermelho"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        />
-
-    <SeekBar
+    android:layout_width="fill_parent"
+    android:background="@color/Gainsboro"
+    android:layout_height="fill_parent">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/skbVermelho"
-        android:max="255"
-        android:layout_margin="@dimen/activity_horizontal_margin"/>
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/verde"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        />
+        <TextView
+            android:id="@+id/textfield"
+            android:layout_width="333dp"
+            android:layout_height="161dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marginTop"
+            android:background="@drawable/border_shadow"/>
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/skbVerde"
-        android:max="255"
-        android:layout_margin="@dimen/activity_horizontal_margin"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/azul"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_marginBottom="@dimen/marginBottom"
+            android:orientation="horizontal">
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/skbAzul"
-        android:max="255"
-        android:layout_margin="@dimen/activity_horizontal_margin"/>
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/marginTop"
+                android:text="@string/texto" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtCor"
-        android:gravity="center"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/edtText"
+                android:layout_width="244dp"
+                android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/barraCor"
-        android:layout_margin="@dimen/activity_horizontal_margin"/>
+            <ImageButton
+                android:id="@+id/btnEnviar"
+                android:layout_width="43dp"
+                android:layout_height="44dp"
+                android:src="@android:drawable/ic_menu_upload" />
+        </LinearLayout>
 
-</LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tamanhoLetra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/tamanhoLetra" />
+
+        <SeekBar
+            android:id="@+id/skbTamanhoLetra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"/>
+
+        <TextView
+            android:id="@+id/estilo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/estilo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/marginBottom"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/marginTop">
+
+            <CheckBox
+                android:id="@+id/ckbNegrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/negrito" />
+
+            <CheckBox
+                android:id="@+id/ckbItalico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="@string/italico"/>
+
+            <CheckBox
+                android:id="@+id/ckbMaiusculo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/maiusculo" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/corLetra"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/corLetra" />
+
+        <RadioGroup
+            android:id="@+id/rdgSexo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/marginTop"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/roxo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/roxo" />
+
+            <RadioButton
+                android:id="@+id/laranja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:text="@string/laranja" />
+
+            <RadioButton
+                android:id="@+id/ciano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ciano" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+</ScrollView>
