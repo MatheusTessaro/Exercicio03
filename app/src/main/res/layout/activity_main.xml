@@ -121,24 +121,27 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/roxo"
+                android:id="@+id/rdbRoxo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/roxo" />
+                android:text="@string/roxo"
+                android:textColor="@color/roxo"/>
 
             <RadioButton
-                android:id="@+id/laranja"
+                android:id="@+id/rdbLaranja"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:text="@string/laranja" />
+                android:text="@string/laranja"
+                android:textColor="@color/laranja"/>
 
             <RadioButton
-                android:id="@+id/ciano"
+                android:id="@+id/rdbCiano"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ciano" />
+                android:text="@string/ciano"
+                android:textColor="@color/ciano"/>
         </RadioGroup>
 
     </LinearLayout>
