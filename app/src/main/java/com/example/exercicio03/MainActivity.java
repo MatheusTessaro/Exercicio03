@@ -65,12 +65,11 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btnEnviar) {
-                String aux = "";
-                aux = aux.concat(textField.getText().toString() + " " + edtText.getText().toString());
+            String aux = "";
+            aux = aux.concat(textField.getText().toString() + " " + edtText.getText().toString());
 
-
-                textField.setText(aux);
-                edtText.getText().clear();
+            textField.setText(aux);
+            edtText.getText().clear();
 
         }
 
@@ -79,20 +78,26 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if(ckbNegrito.isChecked()){
+            ckbItalico.setChecked(false);
+            ckbMaiusculo.setChecked(false);
+            textField.setTypeface(null, Typeface.NORMAL);
             textField.setTypeface(null, Typeface.BOLD);
         }
         if (ckbItalico.isChecked()){
+            ckbMaiusculo.setChecked(false);
+            ckbNegrito.setChecked(false);
+            textField.setTypeface(null, Typeface.NORMAL);
             textField.setTypeface(null, Typeface.ITALIC);
         }
         if (ckbMaiusculo.isChecked()){
+            ckbNegrito.setChecked(false);
+            ckbItalico.setChecked(false);
+            textField.setTypeface(null, Typeface.NORMAL);
             textField.setText(textField.getText().toString().toUpperCase());
         }else {
             textField.setText(textField.getText().toString().toLowerCase());
         }
 
-        if(ckbNegrito.isChecked() && ckbItalico.isChecked()){
-            textField.setTypeface(null, Typeface.BOLD_ITALIC);
-        }
 
         if(rdbRoxo.isChecked()){
             rdbLaranja.setChecked(false);
